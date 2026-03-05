@@ -1,0 +1,129 @@
+{
+  "info": {
+    "name": "DappLooker Token Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Token Insight & HyperLiquid Daily PnL APIs"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Token Insight — Chainlink",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/token/chainlink/insight",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "token", "chainlink", "insight"]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 30\n}"
+        }
+      }
+    },
+    {
+      "name": "Token Insight — Bitcoin",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/token/bitcoin/insight",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "token", "bitcoin", "insight"]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 7\n}"
+        }
+      }
+    },
+    {
+      "name": "Token Insight — Ethereum",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/token/ethereum/insight",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "token", "ethereum", "insight"]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 30\n}"
+        }
+      }
+    },
+    {
+      "name": "HyperLiquid Daily PnL",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/hyperliquid/0x31ca8395cf837de08b24da3f660e77761dfb974b/pnl?start=2025-08-01&end=2025-08-03",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "hyperliquid",
+            "0x31ca8395cf837de08b24da3f660e77761dfb974b",
+            "pnl"
+          ],
+          "query": [
+            { "key": "start", "value": "2025-08-01" },
+            { "key": "end", "value": "2025-08-03" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "HyperLiquid PnL — Invalid Wallet",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/hyperliquid/invalid-wallet/pnl?start=2025-08-01&end=2025-08-03",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "hyperliquid",
+            "invalid-wallet",
+            "pnl"
+          ],
+          "query": [
+            { "key": "start", "value": "2025-08-01" },
+            { "key": "end", "value": "2025-08-03" }
+          ]
+        }
+      }
+    }
+  ]
+}

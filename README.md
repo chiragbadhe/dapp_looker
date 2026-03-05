@@ -247,4 +247,3 @@ tests/
 ## Postman Collection
 
 Import `postman_collection.json` into Postman. Set the `baseUrl` variable (defaults to `http://localhost:3000`).
-# dapp_looker
