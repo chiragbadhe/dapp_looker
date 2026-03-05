@@ -116,22 +116,32 @@ Fetches token data from CoinGecko, generates an AI insight, and returns both.
 {
   "source": "coingecko",
   "token": {
-    "id": "chainlink",
-    "symbol": "link",
-    "name": "Chainlink",
+    "id": "ethereum",
+    "symbol": "eth",
+    "name": "Ethereum",
     "market_data": {
-      "current_price_usd": 7.23,
-      "market_cap_usd": 3500000000,
-      "total_volume_usd": 120000000,
-      "price_change_percentage_24h": -1.2
+      "current_price_usd": 2070.69,
+      "market_cap_usd": 249222656429,
+      "total_volume_usd": 27207944769,
+      "price_change_percentage_24h": -3.22897,
+      "price_change_percentage_7d": 1.8485,
+      "price_change_percentage_30d": -10.0176,
+      "ath_usd": 4946.05,
+      "atl_usd": 0.432979,
+      "circulating_supply": 120692108.975498,
+      "total_supply": 120692108.975498
     }
   },
   "insight": {
-    "summary": "Chainlink shows moderate sideways movement...",
-    "reasoning": "Price consolidating near support levels...",
+    "summary": "Ethereum (ETH) is currently priced at $2070.69, reflecting a slight decline of 3.23% over the last 24 hours, while showing resilience with a 1.85% increase over the past week. Despite a notable 10.02% decrease in the last 30 days, the token remains a cornerstone of the decentralized application ecosystem.",
+    "reasoning": "The recent price fluctuations suggest a market correction following a prior downtrend, but Ethereum's strong fundamentals in decentralized finance and smart contracts continue to support its value. The current price is significantly lower than its all-time high, indicating potential for recovery as market conditions improve.",
     "sentiment": "Neutral",
     "risk_level": "Medium",
-    "key_factors": ["Oracle adoption", "Market correlation", "DeFi TVL trends"]
+    "key_factors": [
+      "Current market volatility",
+      "Strong DeFi ecosystem presence",
+      "Recent price trends indicating potential recovery"
+    ]
   },
   "model": {
     "provider": "openai",
@@ -161,33 +171,52 @@ Fetches trade fills and funding from HyperLiquid and computes daily PnL breakdow
 
 ```json
 {
-  "wallet": "0xabc123...",
+  "wallet": "0x1e37a337ed460039d1b15bd3bc489de789768d5e",
   "start": "2025-08-01",
   "end": "2025-08-03",
   "daily": [
     {
       "date": "2025-08-01",
-      "realized_pnl_usd": 120.5,
+      "realized_pnl_usd": 0,
       "unrealized_pnl_usd": 0,
-      "fees_usd": 2.1,
-      "funding_usd": -0.5,
-      "net_pnl_usd": 117.9,
-      "equity_usd": 10117.9
+      "fees_usd": 0,
+      "funding_usd": -171.51,
+      "net_pnl_usd": -171.51,
+      "equity_usd": 7193037.63
+    },
+    {
+      "date": "2025-08-02",
+      "realized_pnl_usd": 0,
+      "unrealized_pnl_usd": 0,
+      "fees_usd": 0,
+      "funding_usd": -159.16,
+      "net_pnl_usd": -159.16,
+      "equity_usd": 7192878.47
+    },
+    {
+      "date": "2025-08-03",
+      "realized_pnl_usd": 0,
+      "unrealized_pnl_usd": 0,
+      "fees_usd": 0,
+      "funding_usd": -154.1,
+      "net_pnl_usd": -154.1,
+      "equity_usd": 7192724.37
     }
   ],
   "summary": {
-    "total_realized_usd": 120.5,
+    "total_realized_usd": 0,
     "total_unrealized_usd": 0,
-    "total_fees_usd": 3.3,
-    "total_funding_usd": -0.8,
-    "net_pnl_usd": 116.4
+    "total_fees_usd": 0,
+    "total_funding_usd": -484.77,
+    "net_pnl_usd": -484.77
   },
   "diagnostics": {
     "data_source": "hyperliquid_api",
-    "fills_count": 12,
-    "funding_events_count": 6,
-    "last_api_call": "2025-09-22T12:00:00Z",
-    "notes": "..."
+    "fills_count": 0,
+    "funding_events_count": 60,
+    "account_value_usd": 7193209.138448,
+    "last_api_call": "2026-03-05T16:27:48.912Z",
+    "notes": "Realized PnL from closed trades. Unrealized PnL requires historical mark prices not available via API; reported as 0 for historical dates."
   }
 }
 ```
